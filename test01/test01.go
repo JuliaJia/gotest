@@ -25,4 +25,5 @@ func Test2() {
 		flag.PrintDefaults()
 	}
 	flag.Parse()
+	fmt.Println(host, port, h, help)
 }
