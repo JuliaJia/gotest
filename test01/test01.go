@@ -3,6 +3,7 @@ package test01
 import (
 	"flag"
 	"fmt"
+	"os"
 )
 
 func Test1() {
@@ -26,4 +27,8 @@ func Test2() {
 	}
 	flag.Parse()
 	fmt.Println(host, port, h, help)
+	if h || help {
+		flag.Usage()
+		os.Exit(1)
+	}
 }
