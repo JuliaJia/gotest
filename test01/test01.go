@@ -31,4 +31,6 @@ func Test2() {
 		flag.Usage()
 		os.Exit(0)
 	}
+	fmt.Println(flag.NArg())
+	fmt.Printf("%#v\n", flag.Args())
 }
