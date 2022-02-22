@@ -29,6 +29,6 @@ func Test2() {
 	fmt.Println(host, port, h, help)
 	if h || help {
 		flag.Usage()
-		os.Exit(1)
+		os.Exit(0)
 	}
 }
