@@ -3,6 +3,7 @@ package test01
 import (
 	"flag"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -33,4 +34,10 @@ func Test2() {
 	}
 	fmt.Println(flag.NArg())
 	fmt.Printf("%#v\n", flag.Args())
+}
+
+func TestLog() {
+	log.SetFlags(log.Flags() | log.Ldate | log.Lshortfile)
+	log.SetPrefix("TestLog: ")
+	log.Println("这是TestLog的第一条日志！")
 }
