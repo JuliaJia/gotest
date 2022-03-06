@@ -1,6 +1,7 @@
 package test01
 
 import (
+	"encoding/base64"
 	"flag"
 	"fmt"
 	"log"
@@ -59,4 +60,11 @@ func TestTime() {
 	time1990 := time.Date(year, month, day, 0, 0, 0, 0, time.UTC)
 	fmt.Println(time1990.Format("2006-01-02 15:04:05"))
 
+}
+
+func TestBase64() {
+	fmt.Println(base64.StdEncoding.EncodeToString([]byte("我不是塞尔达，我是林克！")))
+	txt, _ := base64.StdEncoding.DecodeString(base64.StdEncoding.EncodeToString([]byte("我是林克！")))
+	fmt.Println(string(txt))
+	base64.URLEncoding.EncodeToString([]byte("我是林克！"))
 }
