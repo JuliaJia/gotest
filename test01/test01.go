@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 )
 
 func Test1() {
@@ -44,4 +45,14 @@ func TestLog() {
 	logger2 := log.New(os.Stdout, "Logger2:", log.Flags())
 	logger.Println("我是Logger日志")
 	logger2.Println("我是Logger2日志")
+}
+
+func TestTime() {
+	now := time.Now()
+	fmt.Println(now.Year())
+	fmt.Println(now.Month())
+	fmt.Println(now.Day())
+	fmt.Println(now.Hour())
+	fmt.Println(now.Minute())
+	fmt.Println(now.Second())
 }
