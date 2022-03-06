@@ -40,4 +40,8 @@ func TestLog() {
 	log.SetFlags(log.Flags() | log.Ldate | log.Lshortfile)
 	log.SetPrefix("TestLog: ")
 	log.Println("这是TestLog的第一条日志！")
+	logger := log.New(os.Stdout, "Logger:", log.Flags())
+	logger2 := log.New(os.Stdout, "Logger2:", log.Flags())
+	logger.Println("我是Logger日志")
+	logger2.Println("我是Logger2日志")
 }
