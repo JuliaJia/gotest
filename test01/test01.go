@@ -63,8 +63,8 @@ func TestTime() {
 }
 
 func TestBase64() {
-	fmt.Println(base64.StdEncoding.EncodeToString([]byte("我不是塞尔达，我是林克！")))
+	fmt.Println(base64.StdEncoding.EncodeToString([]byte("我是林克！")))
 	txt, _ := base64.StdEncoding.DecodeString(base64.StdEncoding.EncodeToString([]byte("我是林克！")))
 	fmt.Println(string(txt))
-	base64.URLEncoding.EncodeToString([]byte("我是林克！"))
+	fmt.Println(base64.URLEncoding.EncodeToString([]byte("我是林克！")))
 }
