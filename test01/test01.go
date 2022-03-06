@@ -55,4 +55,8 @@ func TestTime() {
 	fmt.Println(now.Hour())
 	fmt.Println(now.Minute())
 	fmt.Println(now.Second())
+	year, month, day := 1990, time.February, 1
+	time1990 := time.Date(year, month, day, 0, 0, 0, 0, time.UTC)
+	fmt.Println(time1990.Format("2006-01-02 15:04:05"))
+
 }
