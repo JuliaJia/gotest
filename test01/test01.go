@@ -73,4 +73,7 @@ func TestBase64() {
 func TestHex() {
 	fmt.Printf("%x\n", []byte("我是林克！"))
 	fmt.Println(hex.EncodeToString([]byte("我是林克！")))
+	ds, _ := hex.DecodeString("e68891e698afe69e97e5858befbc81")
+	fmt.Println(ds)
+
 }
