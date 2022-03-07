@@ -120,7 +120,7 @@ func TestSha() {
 }
 
 func TestCmd() {
-	cmd := exec.Command("ping", "www.baidu.com")
+	cmd := exec.Command("/sbin/ping", "-c", "2", "www.baidu.com")
 	bytes, err := cmd.Output()
 	fmt.Println(string(bytes), err)
 }
