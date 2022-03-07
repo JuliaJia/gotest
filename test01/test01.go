@@ -7,6 +7,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"math/rand"
 	"os"
 	"time"
 )
@@ -79,9 +80,30 @@ func TestHex() {
 
 }
 
+func randString(n int) (string, string) {
+	rt1 := make([]byte, 0, n)
+	rt2 := make([]byte, n, n)
+	chars := "01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~`!@#$%^&*()_+-=/\\|\"'?,.<>"
+	for i := 0; i < n; i++ {
+		rt1 = append(rt1, chars[rand.Intn(len(chars))])
+		rt2[i] = chars[rand.Intn(len(chars))]
+	}
+	return string(rt1), string(rt2)
+}
+
+func md5String(text string, salt string) string {
+	bytes := []byte(salt)
+	bytes = append(bytes, ':')
+	bytes = append(bytes, []byte(text)...)
+	return fmt.Sprintf("%x", md5.Sum(bytes))
+}
+
 func TestHash() {
 	fmt.Printf("%x\n", md5.Sum([]byte("我是林克！")))
 	hasher := md5.New()
 	hasher.Write([]byte("我是林克！"))
 	fmt.Println(hex.EncodeToString(hasher.Sum(nil)))
+	salt1, salt2 := randString(6)
+	fmt.Println(salt1, salt2)
+	fmt.Println("我是林克！", salt1, md5String("我是林克！", salt1))
 }
