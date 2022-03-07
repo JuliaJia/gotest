@@ -11,6 +11,7 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"os/exec"
 	"time"
 )
 
@@ -116,4 +117,10 @@ func TestSha() {
 	sha256Hasher.Write([]byte("我是林克！"))
 	fmt.Println(hex.EncodeToString(sha256Hasher.Sum(nil)))
 
+}
+
+func TestCmd() {
+	cmd := exec.Command("ping", "www.baidu.com")
+	bytes, err := cmd.Output()
+	fmt.Println(string(bytes), err)
 }
