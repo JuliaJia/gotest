@@ -2,6 +2,7 @@ package test01
 
 import (
 	"encoding/base64"
+	"encoding/hex"
 	"flag"
 	"fmt"
 	"log"
@@ -67,4 +68,9 @@ func TestBase64() {
 	txt, _ := base64.StdEncoding.DecodeString(base64.StdEncoding.EncodeToString([]byte("我是林克！")))
 	fmt.Println(string(txt))
 	fmt.Println(base64.URLEncoding.EncodeToString([]byte("我是林克！")))
+}
+
+func TestHex() {
+	fmt.Printf("%x\n", []byte("我是林克！"))
+	fmt.Println(hex.EncodeToString([]byte("我是林克！")))
 }
