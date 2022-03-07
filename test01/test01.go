@@ -2,6 +2,8 @@ package test01
 
 import (
 	"crypto/md5"
+	"crypto/sha1"
+	"crypto/sha256"
 	"encoding/base64"
 	"encoding/hex"
 	"flag"
@@ -106,4 +108,12 @@ func TestHash() {
 	salt1, salt2 := randString(6)
 	fmt.Println(salt1, salt2)
 	fmt.Println("我是林克！", salt1, md5String("我是林克！", salt1))
+}
+
+func TestSha() {
+	fmt.Printf("%x\n", sha1.Sum([]byte("我是林克！")))
+	sha256Hasher := sha256.New()
+	sha256Hasher.Write([]byte("我是林克！"))
+	fmt.Println(hex.EncodeToString(sha256Hasher.Sum(nil)))
+
 }
