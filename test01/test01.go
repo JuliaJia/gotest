@@ -1,6 +1,7 @@
 package test01
 
 import (
+	"crypto/md5"
 	"encoding/base64"
 	"encoding/hex"
 	"flag"
@@ -76,4 +77,11 @@ func TestHex() {
 	ds, _ := hex.DecodeString("e68891e698afe69e97e5858befbc81")
 	fmt.Println(string(ds))
 
+}
+
+func TestHash() {
+	fmt.Printf("%x\n", md5.Sum([]byte("我是林克！")))
+	hasher := md5.New()
+	hasher.Write([]byte("我是林克！"))
+	fmt.Println(hex.EncodeToString(hasher.Sum(nil)))
 }
