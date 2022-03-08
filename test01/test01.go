@@ -124,3 +124,10 @@ func TestCmd() {
 	bytes, err := cmd.Output()
 	fmt.Println(string(bytes), err)
 }
+
+func NgFlow(count int, dict map[int]float64) map[int]float64 {
+	for k := range dict {
+		fmt.Println(dict[k])
+	}
+	return dict
+}
