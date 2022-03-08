@@ -125,9 +125,16 @@ func TestCmd() {
 	fmt.Println(string(bytes), err)
 }
 
-func NgFlow(count int, dict map[int]float64) map[int]float64 {
+func NgFlow(count float64, dict map[float64]float64) map[float64]float64 {
+	var new_dict map[float64]float64
+	new_value := float64(0)
 	for k := range dict {
-		fmt.Println(dict[k])
+		value := k / count * dict[k]
+		new_value += value
+		new_dict[k] = value
 	}
-	return dict
+	for k := range dict {
+		new_dict[k] = new_dict[k] / new_value
+	}
+	return new_dict
 }
